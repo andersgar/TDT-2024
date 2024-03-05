@@ -16,12 +16,6 @@ void EmptyFace::draw(AnimationWindow &win)
     Color eyeColor = Color::white;
     cout << Emoji::toString() << " - Draw emptyface" << endl; // todo debug
 
-    // Redefining positions due to the setNewCentre-function
-    leftEyeCentre = {centre.x - radius / 3, centre.y - radius / 3};
-    rightEyeCentre = {centre.x + radius / 3, centre.y - radius / 3};
-    eyeRadius = radius / 5;
-    pupilRadius = eyeRadius / 5;
-
     Face::draw(win);
     win.draw_circle(leftEyeCentre, eyeRadius, eyeColor, Color::black);
     cout << to_string(leftEyeCentre.x) + " : " + to_string(leftEyeCentre.y) << " - Left eye centre emptyface draw" << endl; // todo debug
@@ -35,11 +29,6 @@ void EmptyFace::draw(AnimationWindow &win)
 
 void SmilingFace::draw(AnimationWindow &win)
 {
-    // Redefining positions due to the setNewCentre-function
-    mouthCentre = {centre.x, centre.y};
-    mouthHeight = radius / 2;
-    mouthWidth = radius / 2;
-
     cout << Emoji::toString() << " - Draw smilingface" << endl; // todo debug
     EmptyFace::draw(win);
     win.draw_arc(mouthCentre, mouthWidth, mouthHeight, mouthStartDegree, mouthEndDegree);
@@ -47,15 +36,6 @@ void SmilingFace::draw(AnimationWindow &win)
 
 void SadFace::draw(AnimationWindow &win)
 {
-    // Redefining positions due to the setNewCentre-function
-    mouthCentre = {centre.x, centre.y + radius / 2};
-    mouthStartDegree = 0;
-    mouthEndDegree = 180;
-    leftEyebrowStart = {centre.x - radius / 5, centre.y - radius / 3 - radius / 3};
-    leftEyebrowEnd = {centre.x - radius / 2, centre.y - radius / 2};
-    rightEyebrowStart = {centre.x + radius / 5, centre.y - radius / 3 - radius / 3};
-    rightEyebrowEnd = {centre.x + radius / 2, centre.y - radius / 2};
-
     EmptyFace::draw(win);
     win.draw_arc(mouthCentre, mouthWidth, mouthHeight, mouthStartDegree, mouthEndDegree);
     win.draw_line(leftEyebrowStart, leftEyebrowEnd);
@@ -64,12 +44,6 @@ void SadFace::draw(AnimationWindow &win)
 
 void AngryFace::draw(AnimationWindow &win)
 {
-    // Redefining positions due to the setNewCentre-function
-    leftEyebrowStart = {centre.x - radius / 7, centre.y - radius / 3 - radius / 10};
-    leftEyebrowEnd = {centre.x - radius / 2, centre.y - radius / 2};
-    rightEyebrowStart = {centre.x + radius / 7, centre.y - radius / 3 - radius / 10};
-    rightEyebrowEnd = {centre.x + radius / 2, centre.y - radius / 2};
-
     SadFace::draw(win);
     win.draw_line(leftEyebrowStart, leftEyebrowEnd);
     win.draw_line(rightEyebrowStart, rightEyebrowEnd);
@@ -77,12 +51,6 @@ void AngryFace::draw(AnimationWindow &win)
 
 void WinkingFace::draw(AnimationWindow &win)
 {
-    // Redefining positions due to the setNewCentre-function
-    wink = true;
-    winkEyeStart = {rightEyeCentre.x - eyeRadius, rightEyeCentre.y};
-    winkEyeEndTop = {rightEyeCentre.x + eyeRadius, rightEyeCentre.y - eyeRadius};
-    winkEyeEndBottom = {rightEyeCentre.x + eyeRadius, rightEyeCentre.y + eyeRadius};
-
     SmilingFace::draw(win);
     win.draw_line(winkEyeStart, winkEyeEndTop);
     win.draw_line(winkEyeStart, winkEyeEndBottom);
@@ -90,11 +58,6 @@ void WinkingFace::draw(AnimationWindow &win)
 
 void SurprisedFace::draw(AnimationWindow &win)
 {
-    // Redefining positions due to the setNewCentre-function
-    mouthStartDegree = 0;
-    mouthHeight = radius / 4;
-    mouthCentre = {mouthCentre.x, mouthCentre.y + radius / 3};
-
     SmilingFace::draw(win);
 };
 

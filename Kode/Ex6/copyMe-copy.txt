@@ -1,0 +1,15 @@
+1: hei
+2: dette
+3: er 
+4: en
+5: fil
+6: for
+7: å
+8: teste 
+9: om
+10: det
+11: er
+12: mulig
+13: å 
+14: kopiere
+15: :)

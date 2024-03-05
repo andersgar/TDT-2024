@@ -1,0 +1,15 @@
+{
+    "tdt4102.isProjectFolder": true,
+    "cmake.configureOnOpen": false,
+    "cmake.autoSelectActiveFolder": false,
+    "cmake.configureOnEdit": false,
+    "makefile.alwaysPreConfigure": false,
+    "files.associations": {
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "optional": "cpp",
+        "variant": "cpp"
+    }
+}

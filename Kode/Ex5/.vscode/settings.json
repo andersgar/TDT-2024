@@ -1,0 +1,23 @@
+{
+    "tdt4102.isProjectFolder": true,
+    "cmake.configureOnOpen": false,
+    "cmake.autoSelectActiveFolder": false,
+    "cmake.configureOnEdit": false,
+    "makefile.alwaysPreConfigure": false,
+    "files.associations": {
+        "string": "cpp",
+        "format": "cpp",
+        "array": "cpp",
+        "unordered_map": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "fstream": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "functional": "cpp",
+        "regex": "cpp",
+        "tuple": "cpp",
+        "variant": "cpp",
+        "iostream": "cpp"
+    }
+}

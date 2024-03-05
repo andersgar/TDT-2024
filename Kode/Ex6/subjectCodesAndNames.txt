@@ -1,0 +1,4 @@
+ELET1002:Elektriske kretser - modellering og analyse
+IFYT:Fysikk
+IMAT2012:Matematikk for ingeniørfag 2A
+TDT4102:Posedyre- og objektorientert programmering

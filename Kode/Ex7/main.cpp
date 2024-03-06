@@ -25,8 +25,7 @@ int main()
     testEmoji.draw(win); */
 
     //* Draw all emojis
-    //! Currently, this version does not work as the constructor defines face positions when the class object is initiated.
-    //! When the setNewCentre()-function is called, the positions does not change due to this.
+    //! This is a simplified and working version.
     vector<unique_ptr<Emoji>> emojiVector;
     emojiVector.emplace_back(new SmilingFace({tl.x, tl.y}, emojiRadius));
     emojiVector.emplace_back(new SadFace({tl.x + 200, tl.y}, emojiRadius));

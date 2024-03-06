@@ -4,25 +4,20 @@
 
 class Emoji
 {
-protected:
-    Point centre; // All emojis have a centre, defining it here makes it possible for me to use the setNewCentre()-function to move the centre easier.
 
 public:
-    Emoji(Point c) : centre(c){};
     virtual void draw(AnimationWindow &) = 0;
-    virtual void setNewCentre(Point &newCentre); // Function used in showAllEmojis-function.
-    virtual string toString();                   // todo for debug, prints current centre
-    virtual ~Emoji(){};                          // Destructor
+    virtual ~Emoji(){}; // Destructor
 };
 
 class Face : public Emoji
 {
 protected:
+    Point centre;
     int radius;
 
 public:
-    Face(Point c, int r) : Emoji(c), radius(r){};
-    // Face(Point c, int r) : centre(c), radius(r){}; //todo trying to define centre in Emoji-class
+    Face(Point c, int r) : centre(c), radius(r){};
     virtual void draw(AnimationWindow &) override = 0;
 };
 

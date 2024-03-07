@@ -33,10 +33,7 @@ int main()
     */
 
     //* Task 4 tests
-    // bouncingBall();
-
-    int n = 4;
-    cout << ++n << n << n++ << n << endl;
+    bouncingBall();
 
     return 0;
 }

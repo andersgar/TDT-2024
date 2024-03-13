@@ -1,5 +1,6 @@
 #include "utilities.h"
 #include "Matrix.h"
+#include "Dummy.h"
 #include <iostream>
 
 int main()
@@ -19,8 +20,8 @@ int main()
     std::cout << "Matrix B has " << B.getRows() << " rows and " << B.getColumns() << " coulumns." << std::endl;
     std::cout << "In matrix B, value at (1,2) is: " << B[1][2] << std::endl; */
 
-    //* 3A)
-    // When this code is run, i expect to see
+    //* Task 3 test
+    dummyTest();
 
     return 0;
 }

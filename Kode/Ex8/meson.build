@@ -29,6 +29,8 @@ src = []
 exe = executable(
   'program',
   src,
+'Dummy.cpp',
+'Matrix.cpp',
 'main.cpp',
 'utilities.cpp',
   dependencies : [animationwindow_dep, sdl2_dep],

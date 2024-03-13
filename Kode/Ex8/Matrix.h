@@ -1,6 +1,7 @@
 #pragma once
 #include <cassert>
 #include <iostream>
+#include <utility>
 
 class Matrix
 {
@@ -10,48 +11,75 @@ private:
     double **data;
 
 public:
-    Matrix(int nRows, int nColumns) : rows(nRows), columns(nColumns) // Default constructor
-    {
-        assert(nRows > 0 && nColumns > 0); // Verifies that the matrix has valid coordinates.
-        data = new double *[rows];
-        for (int i = 0; i < rows; i++)
-        {
-            data[i] = new double[columns](); // () Initializes the values to 0.
-        }
-    };
+    Matrix(int nRows, int nColumns); // Default constructor
+    Matrix(const Matrix &rhs);       // Copy constructor
+    explicit Matrix(int nRows);      // Identity matrix (NxN-matrix)
 
-    explicit Matrix(int nRows) : Matrix(nRows, nRows) // Identity matrix
+    ~Matrix(); // Destructor
+
+    double *operator[](int index) { return data[index]; };
+    friend std::ostream &operator<<(std::ostream &os, const Matrix &matrix);
+    Matrix &operator=(Matrix rhs)
     {
-        assert(nRows > 0);
+        assert(rows == rhs.rows && columns == rhs.columns); // Verifies that the matrices are the same size.
+        std::swap(data, rhs.data);
+        return *this;
+    }
+    Matrix &operator+=(Matrix rhs)
+    {
+        assert(rows == rhs.rows && columns == rhs.columns); // Verifies that the matrices are the same size.
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                if (i == j) // Ecuals 1 on the diagonal.
-                {
-                    data[i][j] = 1.0;
-                }
-                else
-                {
-                    data[i][j] = 0.0;
-                }
+                this->data[i][j] = data[i][j] + rhs.data[i][j];
             }
         }
+        return *this;
     }
-    ~Matrix()
+    Matrix &operator+(Matrix rhs)
     {
+        *this += rhs;
+        return *this;
+    }
+
+    Matrix &operator-=(Matrix rhs)
+    {
+        assert(rows == rhs.rows && columns == rhs.columns); // Verifies that the matrices are the same size.
         for (int i = 0; i < rows; i++)
         {
-            delete[] data[i];
+            for (int j = 0; j < columns; j++)
+            {
+                this->data[i][j] = data[i][j] - rhs.data[i][j];
+            }
         }
-        delete[] data;
-    };
+        return *this;
+    }
 
-    double *operator[](int index)
+    Matrix &operator-(Matrix rhs)
     {
-        return data[index];
-    };
-    friend std::ostream &operator<<(std::ostream &os, const Matrix &matrix);
+        *this -= rhs;
+        return *this;
+    }
+
+    Matrix &operator*=(Matrix rhs)
+    {
+        assert(rows == rhs.rows && columns == rhs.columns); // Verifies that the matrices are the same size.
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                this->data[i][j] = data[i][j] * rhs.data[i][j];
+            }
+        }
+        return *this;
+    }
+
+    Matrix &operator*(Matrix rhs)
+    {
+        *this *= rhs;
+        return *this;
+    }
 
     double get(int row, int col) const;
     void set(int row, int col, double value);

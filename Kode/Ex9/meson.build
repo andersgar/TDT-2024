@@ -29,6 +29,8 @@ src = []
 exe = executable(
   'program',
   src,
+'Car.cpp',
+'Person.cpp',
 'main.cpp',
   dependencies : [animationwindow_dep, sdl2_dep],
   cpp_args : compiler_flags

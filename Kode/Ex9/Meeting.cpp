@@ -71,7 +71,6 @@ std::vector<std::shared_ptr<Person>> Meeting::findPotentialCoDriving(Meeting &rh
     }
     else
     {
-
         applicableParticipants.push_back(nullptr);
     }
     return applicableParticipants;

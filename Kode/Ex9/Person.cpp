@@ -2,15 +2,8 @@
 
 Person::Person(std::string personName, std::string personEmail, std::unique_ptr<Car> personCar) : name(personName), email(personEmail), car(std::move(personCar)){};
 
-std::string Person::getName() const
-{
-    return name;
-}
-
-std::string Person::getEmail() const
-{
-    return email;
-}
+std::string Person::getName() const { return name; }
+std::string Person::getEmail() const { return email; }
 
 void Person::setEmail(std::string newEmail) { email = newEmail; }
 

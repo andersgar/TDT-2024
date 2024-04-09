@@ -32,5 +32,8 @@ namespace TDT4102 {
         void setCallback(std::function<void(void)> callback);
         virtual ~Widget() {}
         void setVisible(bool isVisible);
+        unsigned int getWidth() const;
+        unsigned int getHeight() const;
+        void setSize(unsigned int newWidth, unsigned int newHeight);
     };
 }
